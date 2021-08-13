@@ -53,8 +53,8 @@ unsigned char conversion3;
 unsigned char conversion4;
 unsigned char cen_pot1, dec_pot1, un_pot1;
 unsigned char cen_pot2, dec_pot2, un_pot2;
-unsigned char cen_pot3, dec_pot3, un_pot3;
-unsigned char cen_pot4, dec_pot4, un_pot4;
+unsigned char dec_pot3, un_pot3;
+unsigned char dec_pot4, un_pot4;
 unsigned char cuenta_uart;
 /*-----------------------------------------------------------------------------
  ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
@@ -64,7 +64,7 @@ void toggle_adc(void);
 unsigned char datos_ascii(uint8_t numero);
 uint8_t uart_ascii();
 void envio_uart(void);
-//void mapeos(void);
+void mapeos(void);
 /*-----------------------------------------------------------------------------
  --------------------------- INTERRUPCIONES -----------------------------------
  -----------------------------------------------------------------------------*/
@@ -89,6 +89,7 @@ void main(void) {
     while(1)
     {
         toggle_adc();
+        mapeos();
         //TXREG=conversion1;
         //PORTD=conversion1;
     }
@@ -229,15 +230,15 @@ void envio_uart(void)
     switch(cuenta_uart)
     {
         case(1):            //GAUGE, DE 0 A 255, centenas
-            TXREG = datos_ascii(((conversion1/100))%10);
+            TXREG = datos_ascii(cen_pot1);
             break;
             
         case(2):            //GAUGE, DE 0 A 255, decenas
-            TXREG = datos_ascii(((conversion1/10))%10);
+            TXREG = datos_ascii(dec_pot1);
             break;
             
         case(3):            //GAUGE, DE 0 A 255, unidades
-            TXREG = datos_ascii((conversion1)%10);
+            TXREG = datos_ascii(un_pot1);
             break;
             
         case(4):            //ESPACIO EN BLANCO
@@ -245,15 +246,15 @@ void envio_uart(void)
             break;
             
         case(5):            //TANQUE, DE 0 A 100, centenas
-            TXREG = datos_ascii((((conversion2/2.55)/100)%10));
+            TXREG = datos_ascii(cen_pot2);
             break;
             
         case(6):            //TANQUE, DE 0 A 100, decenas
-            TXREG = datos_ascii((((conversion2/2.55)/10)%10));
+            TXREG = datos_ascii(dec_pot2);
             break;
             
         case(7):            //TANQUE, DE 0 A 100, unidades
-            TXREG =datos_ascii(((conversion2/2.55)%10));
+            TXREG =datos_ascii(un_pot2);
             break;
                 
         case(8):            //ESPACIO EN BLANCO
@@ -261,11 +262,11 @@ void envio_uart(void)
             break;
             
         case(9):            //TERMOMETRO, DE 0 A 70, decenas
-            TXREG =datos_ascii((((conversion3/3.641)/10)%10));
+            TXREG =datos_ascii(dec_pot3);
             break;
             
         case(10):            //TERMOMETRO, DE 0 A 70, unidades
-            TXREG =datos_ascii(((conversion3/21.3)%10));
+            TXREG =datos_ascii(un_pot3);
             break;
             
         case(11):            //ESPACIO EN BLANCO
@@ -273,11 +274,11 @@ void envio_uart(void)
             break;
             
         case(12):            //AGUJA, DE 0 A 12, DECENAS
-            TXREG =datos_ascii(((conversion4/21.3)/10)%10);
+            TXREG =datos_ascii(dec_pot4);
             break;
             
         case(13):            //AGUJA, DE 0 A 12, UNIDADES
-            TXREG =datos_ascii((conversion4/21.3)%10);
+            TXREG =datos_ascii(un_pot3);
             break;
             
         case(14):            //ESPACIO EN BLANCO
@@ -289,4 +290,23 @@ void envio_uart(void)
             cuenta_uart=0;
             break;
     } 
+    return;
+}
+//FUNCION PARA MAPEAR POTENCIOMETROS
+void mapeos(void)
+{
+    cen_pot1=(((conversion1/100))%10);
+    dec_pot1=(((conversion1/10))%10);
+    un_pot1=((conversion1)%10);
+    
+    cen_pot2=((((conversion2/2.55)/100)%10));
+    dec_pot2=(((conversion2/2.55)/10)%10);
+    un_pot2=((conversion2/2.55)%10);
+    
+    dec_pot3=(((conversion3/3.641)/10)%10);
+    un_pot3=((conversion3/3.641)%10);
+    
+    dec_pot3=(((conversion4/21.3)/10)%10);
+    un_pot3=((conversion4/21.3)%10);
+    return;
 }

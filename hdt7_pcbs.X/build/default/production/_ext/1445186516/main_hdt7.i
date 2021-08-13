@@ -2668,8 +2668,8 @@ unsigned char conversion3;
 unsigned char conversion4;
 unsigned char cen_pot1, dec_pot1, un_pot1;
 unsigned char cen_pot2, dec_pot2, un_pot2;
-unsigned char cen_pot3, dec_pot3, un_pot3;
-unsigned char cen_pot4, dec_pot4, un_pot4;
+unsigned char dec_pot3, un_pot3;
+unsigned char dec_pot4, un_pot4;
 unsigned char cuenta_uart;
 
 
@@ -2679,7 +2679,7 @@ void toggle_adc(void);
 unsigned char datos_ascii(uint8_t numero);
 uint8_t uart_ascii();
 void envio_uart(void);
-
+void mapeos(void);
 
 
 
@@ -2704,6 +2704,7 @@ void main(void) {
     while(1)
     {
         toggle_adc();
+        mapeos();
 
 
     }
@@ -2844,15 +2845,15 @@ void envio_uart(void)
     switch(cuenta_uart)
     {
         case(1):
-            TXREG = datos_ascii(((conversion1/100))%10);
+            TXREG = datos_ascii(cen_pot1);
             break;
 
         case(2):
-            TXREG = datos_ascii(((conversion1/10))%10);
+            TXREG = datos_ascii(dec_pot1);
             break;
 
         case(3):
-            TXREG = datos_ascii((conversion1)%10);
+            TXREG = datos_ascii(un_pot1);
             break;
 
         case(4):
@@ -2860,15 +2861,15 @@ void envio_uart(void)
             break;
 
         case(5):
-            TXREG = datos_ascii((((conversion2/2.55)/100)%10));
+            TXREG = datos_ascii(cen_pot2);
             break;
 
         case(6):
-            TXREG = datos_ascii((((conversion2/2.55)/10)%10));
+            TXREG = datos_ascii(dec_pot2);
             break;
 
         case(7):
-            TXREG =datos_ascii(((conversion2/2.55)%10));
+            TXREG =datos_ascii(un_pot2);
             break;
 
         case(8):
@@ -2876,11 +2877,11 @@ void envio_uart(void)
             break;
 
         case(9):
-            TXREG =datos_ascii((((conversion3/3.641)/10)%10));
+            TXREG =datos_ascii(dec_pot3);
             break;
 
         case(10):
-            TXREG =datos_ascii(((conversion3/21.3)%10));
+            TXREG =datos_ascii(un_pot3);
             break;
 
         case(11):
@@ -2888,11 +2889,11 @@ void envio_uart(void)
             break;
 
         case(12):
-            TXREG =datos_ascii(((conversion4/21.3)/10)%10);
+            TXREG =datos_ascii(dec_pot4);
             break;
 
         case(13):
-            TXREG =datos_ascii((conversion4/21.3)%10);
+            TXREG =datos_ascii(un_pot3);
             break;
 
         case(14):
@@ -2904,4 +2905,23 @@ void envio_uart(void)
             cuenta_uart=0;
             break;
     }
+    return;
+}
+
+void mapeos(void)
+{
+    cen_pot1=(((conversion1/100))%10);
+    dec_pot1=(((conversion1/10))%10);
+    un_pot1=((conversion1)%10);
+
+    cen_pot2=((((conversion2/2.55)/100)%10));
+    dec_pot2=(((conversion2/2.55)/10)%10);
+    un_pot2=((conversion2/2.55)%10);
+
+    dec_pot3=(((conversion3/3.641)/10)%10);
+    un_pot3=((conversion3/3.641)%10);
+
+    dec_pot3=(((conversion4/21.3)/10)%10);
+    un_pot3=((conversion4/21.3)%10);
+    return;
 }
