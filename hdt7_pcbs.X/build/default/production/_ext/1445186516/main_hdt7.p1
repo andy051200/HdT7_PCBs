@@ -1,50 +1,157 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2562 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S99 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"2572
-[s S100 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S100 . TXD8 . nTX8 ]
-"2577
-[s S101 :6 `uc 1 :1 `uc 1 ]
-[n S101 . . TX8_9 ]
-"2561
-[u S98 `S99 1 `S100 1 `S101 1 ]
-[n S98 . . . . ]
-"2582
-[v _TXSTAbits `VS98 ~T0 @X0 0 e@152 ]
-"3341
-[s S131 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S131 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
-"3340
-[u S130 `S131 1 ]
-[n S130 . . ]
-"3352
-[v _BAUDCTLbits `VS130 ~T0 @X0 0 e@391 ]
-"2704
-[v _SPBRGH `Vuc ~T0 @X0 0 e@154 ]
-"2642
-[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
-"1044
-[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S37 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"1054
-[s S38 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S38 . RCD8 . RC9 ]
-"1059
-[s S39 :6 `uc 1 :1 `uc 1 ]
-[n S39 . . nRC8 ]
-"1063
-[s S40 :6 `uc 1 :1 `uc 1 ]
-[n S40 . . RC8_9 ]
-"1043
-[u S36 `S37 1 `S38 1 `S39 1 `S40 1 ]
-[n S36 . . . . . ]
-"1068
-[v _RCSTAbits `VS36 ~T0 @X0 0 e@24 ]
-[; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
-[; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[t ~ __interrupt . k ]
+[t T4 __interrupt  ]
+"543 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"65 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c
+[v _mandar_datos `(v ~T0 @X0 0 ef ]
+[p mainexit ]
+"63
+[v _setup `(v ~T0 @X0 0 ef ]
+[v F1286 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1286 ~T0 @X0 0 e ]
+[p i __delay ]
+"1251 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S45 . ADON GO_nDONE CHS ADCS ]
+"1257
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO CHS0 CHS1 CHS2 CHS3 ADCS0 ADCS1 ]
+"1267
+[s S47 :1 `uc 1 :1 `uc 1 ]
+[n S47 . . nDONE ]
+"1271
+[s S48 :1 `uc 1 :1 `uc 1 ]
+[n S48 . . GO_DONE ]
+"1250
+[u S44 `S45 1 `S46 1 `S47 1 `S48 1 ]
+[n S44 . . . . . ]
+"1276
+[v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
+"64 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c
+[v _toggle_adc `(v ~T0 @X0 0 ef ]
+"66
+[v _mapeos `(v ~T0 @X0 0 ef ]
+"3387 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"3393
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
+"3392
+[u S132 `S133 1 ]
+[n S132 . . ]
+"3404
+[v _ANSELbits `VS132 ~T0 @X0 0 e@392 ]
+"1422
+[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1421
+[u S52 `S53 1 ]
+[n S52 . . ]
+"1433
+[v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"1546
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1545
+[u S56 `S57 1 ]
+[n S56 . . ]
+"1557
+[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
+"166
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"290
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"14 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/Osc_config.h
+[v _osc_config `(v ~T0 @X0 0 ef1`uc ]
+"13 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/ADC_CONFIG.h
+[v _ADC_config `(v ~T0 @X0 0 ef ]
+"17 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/UART_CONFIG.h
+[v _uart_config `(v ~T0 @X0 0 ef ]
+"465 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"1708
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"1238
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"1133
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"15 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c
+[p x FOSC=INTRC_NOCLKOUT ]
+"16
+[p x WDTE=OFF ]
+"17
+[p x PWRTE=OFF ]
+"18
+[p x MCLRE=OFF ]
+"19
+[p x CP=OFF ]
+"20
+[p x CPD=OFF ]
+"21
+[p x BOREN=OFF ]
+"22
+[p x IESO=OFF ]
+"23
+[p x FCMEN=OFF ]
+"24
+[p x LVP=OFF ]
+"27
+[p x BOR4V=BOR40V ]
+"28
+[p x WRT=OFF ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;xc8\pic\include\proc\pic16f887.h: 52: extern volatile unsigned char INDF __at(0x000);
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;xc8\pic\include\proc\pic16f887.h: 54: asm("INDF equ 00h");
@@ -1515,6 +1622,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc8\pic\include\proc\pic16f887.h: 4676: extern volatile __bit nTX8 __at(0x4C6);
 [; ;xc8\pic\include\proc\pic16f887.h: 4679: extern volatile __bit nW __at(0x4A2);
 [; ;xc8\pic\include\proc\pic16f887.h: 4682: extern volatile __bit nWRITE __at(0x4A2);
+[; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
+[; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;xc8\pic\include\pic.h: 31: extern void __nop(void);
 [; ;xc8\pic\include\pic.h: 78: __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 [; ;xc8\pic\include\pic.h: 80: __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
@@ -1526,46 +1636,623 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc8\pic\include\pic.h: 137: extern __bank0 unsigned char __resetbits;
 [; ;xc8\pic\include\pic.h: 138: extern __bank0 __bit __powerdown;
 [; ;xc8\pic\include\pic.h: 139: extern __bank0 __bit __timeout;
+[; ;Osc_config.h: 14: void osc_config(uint8_t freq);
+[; ;ADC_CONFIG.h: 13: void ADC_config(void);
 [; ;UART_CONFIG.h: 17: void uart_config(void);
-"21 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/UART_CONFIG.c
-[v _uart_config `(v ~T0 @X0 1 ef ]
-"22
+"50 C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c
+[v _conversion1 `uc ~T0 @X0 1 e ]
+[v _conversion2 `uc ~T0 @X0 1 e ]
+[v _conversion3 `uc ~T0 @X0 1 e ]
+[v _conversion4 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 50: unsigned char conversion1, conversion2, conversion3, conversion4;
+"51
+[v _cuenta_uart `uc ~T0 @X0 1 e ]
+[i _cuenta_uart
+-> -> 0 `i `uc
+]
+[; ;main_hdt7.c: 51: unsigned char cuenta_uart=0;
+"52
+[v _map_cen_pot1 `uc ~T0 @X0 1 e ]
+[v _map_dec_pot1 `uc ~T0 @X0 1 e ]
+[v _map_un_pot1 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 52: unsigned char map_cen_pot1, map_dec_pot1, map_un_pot1;
+"53
+[v _map_cen_pot2 `uc ~T0 @X0 1 e ]
+[v _map_dec_pot2 `uc ~T0 @X0 1 e ]
+[v _map_un_pot2 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 53: unsigned char map_cen_pot2, map_dec_pot2, map_un_pot2;
+"54
+[v _map_cen_pot3 `uc ~T0 @X0 1 e ]
+[v _map_dec_pot3 `uc ~T0 @X0 1 e ]
+[v _map_un_pot3 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 54: unsigned char map_cen_pot3, map_dec_pot3, map_un_pot3;
+"55
+[v _map_cen_pot4 `uc ~T0 @X0 1 e ]
+[v _map_dec_pot4 `uc ~T0 @X0 1 e ]
+[v _map_un_pot4 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 55: unsigned char map_cen_pot4, map_dec_pot4, map_un_pot4;
+"56
+[v _uart_cen_pot1 `uc ~T0 @X0 1 e ]
+[v _uart_dec_pot1 `uc ~T0 @X0 1 e ]
+[v _uart_un_pot1 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 56: unsigned char uart_cen_pot1,uart_dec_pot1, uart_un_pot1;
+"57
+[v _uart_cen_pot2 `uc ~T0 @X0 1 e ]
+[v _uart_dec_pot2 `uc ~T0 @X0 1 e ]
+[v _uart_un_pot2 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 57: unsigned char uart_cen_pot2,uart_dec_pot2, uart_un_pot2;
+"58
+[v _uart_cen_pot3 `uc ~T0 @X0 1 e ]
+[v _uart_dec_pot3 `uc ~T0 @X0 1 e ]
+[v _uart_un_pot3 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 58: unsigned char uart_cen_pot3,uart_dec_pot3, uart_un_pot3;
+"59
+[v _uart_cen_pot4 `uc ~T0 @X0 1 e ]
+[v _uart_dec_pot4 `uc ~T0 @X0 1 e ]
+[v _uart_un_pot4 `uc ~T0 @X0 1 e ]
+[; ;main_hdt7.c: 59: unsigned char uart_cen_pot4,uart_dec_pot4, uart_un_pot4;
+[; ;main_hdt7.c: 63: void setup(void);
+[; ;main_hdt7.c: 64: void toggle_adc(void);
+[; ;main_hdt7.c: 65: void mandar_datos(void);
+[; ;main_hdt7.c: 66: void mapeos(void);
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"70
+[v _isr `(v ~T4 @X0 1 ef ]
+"71
 {
-[; ;UART_CONFIG.c: 21: void uart_config(void)
-[; ;UART_CONFIG.c: 22: {
-[e :U _uart_config ]
+[; ;main_hdt7.c: 70: void __interrupt() isr(void)
+[; ;main_hdt7.c: 71: {
+[e :U _isr ]
 [f ]
-[; ;UART_CONFIG.c: 24: TXSTAbits.SYNC = 0;
-"24
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 25: TXSTAbits.BRGH = 1;
-"25
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;UART_CONFIG.c: 26: TXSTAbits.TX9 = 0;
-"26
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 27: BAUDCTLbits.BRG16 = 0;
-"27
-[e = . . _BAUDCTLbits 0 3 -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 28: SPBRGH = 0;
-"28
-[e = _SPBRGH -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 29: SPBRG = 25;
-"29
-[e = _SPBRG -> -> 25 `i `uc ]
-[; ;UART_CONFIG.c: 31: RCSTAbits.SPEN = 1;
-"31
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;UART_CONFIG.c: 32: RCSTAbits.RX9 = 0;
-"32
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 33: RCSTAbits.CREN = 0;
-"33
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;UART_CONFIG.c: 34: TXSTAbits.TXEN = 1;
-"34
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;UART_CONFIG.c: 35: }
-"35
+[; ;main_hdt7.c: 72: if (PIR1bits.TXIF)
+"72
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 139  ]
+[; ;main_hdt7.c: 73: {
+"73
+{
+[; ;main_hdt7.c: 74: cuenta_uart++;
+"74
+[e ++ _cuenta_uart -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 75: mandar_datos();
+"75
+[e ( _mandar_datos ..  ]
+[; ;main_hdt7.c: 76: PIR1bits.TXIF=0;
+"76
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+"77
+}
+[e :U 139 ]
+[; ;main_hdt7.c: 77: }
+[; ;main_hdt7.c: 78: }
+"78
 [e :UE 138 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"82
+[v _main `(v ~T0 @X0 1 ef ]
+"83
+{
+[; ;main_hdt7.c: 82: void main(void)
+[; ;main_hdt7.c: 83: {
+[e :U _main ]
+[f ]
+[; ;main_hdt7.c: 84: setup();
+"84
+[e ( _setup ..  ]
+[; ;main_hdt7.c: 85: _delay((unsigned long)((1)*(4000000/4000.0)));
+"85
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main_hdt7.c: 86: ADCON0bits.GO=1;
+"86
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 87: while(1)
+"87
+[e :U 142 ]
+[; ;main_hdt7.c: 88: {
+"88
+{
+[; ;main_hdt7.c: 90: toggle_adc();
+"90
+[e ( _toggle_adc ..  ]
+[; ;main_hdt7.c: 92: mapeos();
+"92
+[e ( _mapeos ..  ]
+"93
+}
+[e :U 141 ]
+"87
+[e $U 142  ]
+[e :U 143 ]
+[; ;main_hdt7.c: 93: }
+[; ;main_hdt7.c: 95: }
+"95
+[e :UE 140 ]
+}
+"99
+[v _setup `(v ~T0 @X0 1 ef ]
+"100
+{
+[; ;main_hdt7.c: 99: void setup(void)
+[; ;main_hdt7.c: 100: {
+[e :U _setup ]
+[f ]
+[; ;main_hdt7.c: 102: ANSEL=0;
+"102
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 103: ANSELH=0;
+"103
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 104: ANSELbits.ANS0 = 1;
+"104
+[e = . . _ANSELbits 0 0 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 105: ANSELbits.ANS1 = 1;
+"105
+[e = . . _ANSELbits 0 1 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 106: ANSELbits.ANS2 = 1;
+"106
+[e = . . _ANSELbits 0 2 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 107: ANSELbits.ANS3 = 1;
+"107
+[e = . . _ANSELbits 0 3 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 109: TRISAbits.TRISA0=1;
+"109
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 110: TRISAbits.TRISA1=1;
+"110
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 111: TRISAbits.TRISA2=1;
+"111
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 112: TRISAbits.TRISA3=1;
+"112
+[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 113: TRISCbits.TRISC6=0;
+"113
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 114: TRISCbits.TRISC7=1;
+"114
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 116: PORTA=0;
+"116
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 117: PORTC=0;
+"117
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 119: osc_config(4);
+"119
+[e ( _osc_config (1 -> -> 4 `i `uc ]
+[; ;main_hdt7.c: 121: ADC_config();
+"121
+[e ( _ADC_config ..  ]
+[; ;main_hdt7.c: 123: uart_config();
+"123
+[e ( _uart_config ..  ]
+[; ;main_hdt7.c: 125: INTCONbits.GIE=1;
+"125
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 126: INTCONbits.PEIE=1;
+"126
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 127: PIE1bits.TXIE=1;
+"127
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 128: PIE1bits.RCIE=1;
+"128
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 129: PIR1bits.TXIF=0;
+"129
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 130: PIR1bits.RCIF=0;
+"130
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 131: }
+"131
+[e :UE 144 ]
+}
+"136
+[v _toggle_adc `(v ~T0 @X0 1 ef ]
+"137
+{
+[; ;main_hdt7.c: 136: void toggle_adc()
+[; ;main_hdt7.c: 137: {
+[e :U _toggle_adc ]
+[f ]
+[; ;main_hdt7.c: 138: if(ADCON0bits.GO==0)
+"138
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 146  ]
+[; ;main_hdt7.c: 139: {
+"139
+{
+[; ;main_hdt7.c: 140: switch(ADCON0bits.CHS)
+"140
+[e $U 148  ]
+[; ;main_hdt7.c: 141: {
+"141
+{
+[; ;main_hdt7.c: 142: case(0):
+"142
+[e :U 149 ]
+[; ;main_hdt7.c: 143: conversion1=ADRESH;
+"143
+[e = _conversion1 _ADRESH ]
+[; ;main_hdt7.c: 144: _delay((unsigned long)((500)*(4000000/4000000.0)));
+"144
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main_hdt7.c: 145: ADCON0bits.CHS=1;
+"145
+[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+[; ;main_hdt7.c: 146: break;
+"146
+[e $U 147  ]
+[; ;main_hdt7.c: 148: case(1):
+"148
+[e :U 150 ]
+[; ;main_hdt7.c: 149: conversion2=ADRESH;
+"149
+[e = _conversion2 _ADRESH ]
+[; ;main_hdt7.c: 150: _delay((unsigned long)((500)*(4000000/4000000.0)));
+"150
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main_hdt7.c: 151: ADCON0bits.CHS=2;
+"151
+[e = . . _ADCON0bits 0 2 -> -> 2 `i `uc ]
+[; ;main_hdt7.c: 152: break;
+"152
+[e $U 147  ]
+[; ;main_hdt7.c: 154: case(2):
+"154
+[e :U 151 ]
+[; ;main_hdt7.c: 155: conversion3=ADRESH;
+"155
+[e = _conversion3 _ADRESH ]
+[; ;main_hdt7.c: 156: _delay((unsigned long)((500)*(4000000/4000000.0)));
+"156
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main_hdt7.c: 157: ADCON0bits.CHS=3;
+"157
+[e = . . _ADCON0bits 0 2 -> -> 3 `i `uc ]
+[; ;main_hdt7.c: 158: break;
+"158
+[e $U 147  ]
+[; ;main_hdt7.c: 159: case(3):
+"159
+[e :U 152 ]
+[; ;main_hdt7.c: 160: conversion4=ADRESH;
+"160
+[e = _conversion4 _ADRESH ]
+[; ;main_hdt7.c: 161: _delay((unsigned long)((500)*(4000000/4000000.0)));
+"161
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main_hdt7.c: 162: ADCON0bits.CHS=0;
+"162
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 163: break;
+"163
+[e $U 147  ]
+"165
+}
+[; ;main_hdt7.c: 165: }
+[e $U 147  ]
+"140
+[e :U 148 ]
+[e [\ . . _ADCON0bits 0 2 , $ -> -> 0 `i `uc 149
+ , $ -> -> 1 `i `uc 150
+ , $ -> -> 2 `i `uc 151
+ , $ -> -> 3 `i `uc 152
+ 147 ]
+"165
+[e :U 147 ]
+[; ;main_hdt7.c: 166: _delay((unsigned long)((1)*(4000000/4000.0)));
+"166
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main_hdt7.c: 167: ADCON0bits.GO=1;
+"167
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+"168
+}
+[e :U 146 ]
+[; ;main_hdt7.c: 168: }
+[; ;main_hdt7.c: 169: return;
+"169
+[e $UE 145  ]
+[; ;main_hdt7.c: 170: }
+"170
+[e :UE 145 ]
+}
+"172
+[v _mandar_datos `(v ~T0 @X0 1 ef ]
+"173
+{
+[; ;main_hdt7.c: 172: void mandar_datos(void)
+[; ;main_hdt7.c: 173: {
+[e :U _mandar_datos ]
+[f ]
+[; ;main_hdt7.c: 174: switch(cuenta_uart)
+"174
+[e $U 155  ]
+[; ;main_hdt7.c: 175: {
+"175
+{
+[; ;main_hdt7.c: 179: case(1):
+"179
+[e :U 156 ]
+[; ;main_hdt7.c: 180: TXREG=uart_cen_pot1;
+"180
+[e = _TXREG _uart_cen_pot1 ]
+[; ;main_hdt7.c: 181: break;
+"181
+[e $U 154  ]
+[; ;main_hdt7.c: 182: case(2):
+"182
+[e :U 157 ]
+[; ;main_hdt7.c: 183: TXREG=uart_dec_pot1;
+"183
+[e = _TXREG _uart_dec_pot1 ]
+[; ;main_hdt7.c: 184: break;
+"184
+[e $U 154  ]
+[; ;main_hdt7.c: 185: case(3):
+"185
+[e :U 158 ]
+[; ;main_hdt7.c: 186: TXREG=uart_un_pot1;
+"186
+[e = _TXREG _uart_un_pot1 ]
+[; ;main_hdt7.c: 187: break;
+"187
+[e $U 154  ]
+[; ;main_hdt7.c: 188: case(4):
+"188
+[e :U 159 ]
+[; ;main_hdt7.c: 189: TXREG=0x2C;
+"189
+[e = _TXREG -> -> 44 `i `uc ]
+[; ;main_hdt7.c: 190: break;
+"190
+[e $U 154  ]
+[; ;main_hdt7.c: 191: case(5):
+"191
+[e :U 160 ]
+[; ;main_hdt7.c: 192: TXREG=uart_cen_pot2;
+"192
+[e = _TXREG _uart_cen_pot2 ]
+[; ;main_hdt7.c: 193: break;
+"193
+[e $U 154  ]
+[; ;main_hdt7.c: 194: case(6):
+"194
+[e :U 161 ]
+[; ;main_hdt7.c: 195: TXREG=uart_dec_pot2;
+"195
+[e = _TXREG _uart_dec_pot2 ]
+[; ;main_hdt7.c: 196: break;
+"196
+[e $U 154  ]
+[; ;main_hdt7.c: 197: case(7):
+"197
+[e :U 162 ]
+[; ;main_hdt7.c: 198: TXREG=uart_un_pot2;
+"198
+[e = _TXREG _uart_un_pot2 ]
+[; ;main_hdt7.c: 199: break;
+"199
+[e $U 154  ]
+[; ;main_hdt7.c: 200: case(8):
+"200
+[e :U 163 ]
+[; ;main_hdt7.c: 201: TXREG=0x2C;
+"201
+[e = _TXREG -> -> 44 `i `uc ]
+[; ;main_hdt7.c: 202: break;
+"202
+[e $U 154  ]
+[; ;main_hdt7.c: 203: case(9):
+"203
+[e :U 164 ]
+[; ;main_hdt7.c: 204: TXREG=uart_cen_pot3;
+"204
+[e = _TXREG _uart_cen_pot3 ]
+[; ;main_hdt7.c: 205: break;
+"205
+[e $U 154  ]
+[; ;main_hdt7.c: 206: case(10):
+"206
+[e :U 165 ]
+[; ;main_hdt7.c: 207: TXREG=uart_dec_pot3;
+"207
+[e = _TXREG _uart_dec_pot3 ]
+[; ;main_hdt7.c: 208: break;
+"208
+[e $U 154  ]
+[; ;main_hdt7.c: 209: case(11):
+"209
+[e :U 166 ]
+[; ;main_hdt7.c: 210: TXREG=uart_un_pot3;
+"210
+[e = _TXREG _uart_un_pot3 ]
+[; ;main_hdt7.c: 211: break;
+"211
+[e $U 154  ]
+[; ;main_hdt7.c: 212: case(12):
+"212
+[e :U 167 ]
+[; ;main_hdt7.c: 213: TXREG=0x2C;
+"213
+[e = _TXREG -> -> 44 `i `uc ]
+[; ;main_hdt7.c: 214: break;
+"214
+[e $U 154  ]
+[; ;main_hdt7.c: 215: case(13):
+"215
+[e :U 168 ]
+[; ;main_hdt7.c: 216: TXREG=uart_cen_pot4;
+"216
+[e = _TXREG _uart_cen_pot4 ]
+[; ;main_hdt7.c: 217: break;
+"217
+[e $U 154  ]
+[; ;main_hdt7.c: 218: case(14):
+"218
+[e :U 169 ]
+[; ;main_hdt7.c: 219: TXREG=uart_dec_pot4;
+"219
+[e = _TXREG _uart_dec_pot4 ]
+[; ;main_hdt7.c: 220: break;
+"220
+[e $U 154  ]
+[; ;main_hdt7.c: 221: case(15):
+"221
+[e :U 170 ]
+[; ;main_hdt7.c: 222: TXREG=uart_un_pot4;
+"222
+[e = _TXREG _uart_un_pot4 ]
+[; ;main_hdt7.c: 223: break;
+"223
+[e $U 154  ]
+[; ;main_hdt7.c: 224: case(16):
+"224
+[e :U 171 ]
+[; ;main_hdt7.c: 225: TXREG=10;
+"225
+[e = _TXREG -> -> 10 `i `uc ]
+[; ;main_hdt7.c: 226: break;
+"226
+[e $U 154  ]
+[; ;main_hdt7.c: 227: case(17):
+"227
+[e :U 172 ]
+[; ;main_hdt7.c: 228: TXREG=13;
+"228
+[e = _TXREG -> -> 13 `i `uc ]
+[; ;main_hdt7.c: 229: break;
+"229
+[e $U 154  ]
+[; ;main_hdt7.c: 230: case(30):
+"230
+[e :U 173 ]
+[; ;main_hdt7.c: 231: cuenta_uart=0;
+"231
+[e = _cuenta_uart -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 232: break;
+"232
+[e $U 154  ]
+"233
+}
+[; ;main_hdt7.c: 233: }
+[e $U 154  ]
+"174
+[e :U 155 ]
+[e [\ _cuenta_uart , $ -> -> 1 `i `uc 156
+ , $ -> -> 2 `i `uc 157
+ , $ -> -> 3 `i `uc 158
+ , $ -> -> 4 `i `uc 159
+ , $ -> -> 5 `i `uc 160
+ , $ -> -> 6 `i `uc 161
+ , $ -> -> 7 `i `uc 162
+ , $ -> -> 8 `i `uc 163
+ , $ -> -> 9 `i `uc 164
+ , $ -> -> 10 `i `uc 165
+ , $ -> -> 11 `i `uc 166
+ , $ -> -> 12 `i `uc 167
+ , $ -> -> 13 `i `uc 168
+ , $ -> -> 14 `i `uc 169
+ , $ -> -> 15 `i `uc 170
+ , $ -> -> 16 `i `uc 171
+ , $ -> -> 17 `i `uc 172
+ , $ -> -> 30 `i `uc 173
+ 154 ]
+"233
+[e :U 154 ]
+[; ;main_hdt7.c: 234: return;
+"234
+[e $UE 153  ]
+[; ;main_hdt7.c: 235: }
+"235
+[e :UE 153 ]
+}
+"237
+[v _mapeos `(v ~T0 @X0 1 ef ]
+"238
+{
+[; ;main_hdt7.c: 237: void mapeos(void)
+[; ;main_hdt7.c: 238: {
+[e :U _mapeos ]
+[f ]
+[; ;main_hdt7.c: 241: map_cen_pot1=(((conversion1)/100)%10);
+"241
+[e = _map_cen_pot1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 242: map_dec_pot1=(((conversion1)/10)%10);
+"242
+[e = _map_dec_pot1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 243: map_un_pot1=((conversion1)%10);
+"243
+[e = _map_un_pot1 -> % -> _conversion1 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 245: map_cen_pot2=(((conversion2)/100)%10);
+"245
+[e = _map_cen_pot2 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 246: map_dec_pot2=(((conversion2)/10)%10);
+"246
+[e = _map_dec_pot2 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 247: map_un_pot2=((conversion2)%10);
+"247
+[e = _map_un_pot2 -> % -> _conversion2 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 249: map_cen_pot3=(((conversion3)/100)%10);
+"249
+[e = _map_cen_pot3 -> % / -> _conversion3 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 250: map_dec_pot3=(((conversion3)/10)%10);
+"250
+[e = _map_dec_pot3 -> % / -> _conversion3 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 251: map_un_pot3=((conversion3)%10);
+"251
+[e = _map_un_pot3 -> % -> _conversion3 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 253: map_cen_pot4=(((conversion4)/100)%10);
+"253
+[e = _map_cen_pot4 -> % / -> _conversion4 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 254: map_dec_pot4=(((conversion4)/10)%10);
+"254
+[e = _map_dec_pot4 -> % / -> _conversion4 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 255: map_un_pot4=((conversion4)%10);
+"255
+[e = _map_un_pot4 -> % -> _conversion4 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 259: uart_cen_pot1=(map_cen_pot1+0x30);
+"259
+[e = _uart_cen_pot1 -> + -> _map_cen_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 260: uart_dec_pot1=(map_dec_pot1+0x30);
+"260
+[e = _uart_dec_pot1 -> + -> _map_dec_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 261: uart_un_pot1=(map_un_pot1+0x30);
+"261
+[e = _uart_un_pot1 -> + -> _map_un_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 263: uart_cen_pot2=(map_cen_pot2+0x30);
+"263
+[e = _uart_cen_pot2 -> + -> _map_cen_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 264: uart_dec_pot2=(map_dec_pot2+0x30);
+"264
+[e = _uart_dec_pot2 -> + -> _map_dec_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 265: uart_un_pot2=(map_un_pot2+0x30);
+"265
+[e = _uart_un_pot2 -> + -> _map_un_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 267: uart_cen_pot3=(map_cen_pot3+0x30);
+"267
+[e = _uart_cen_pot3 -> + -> _map_cen_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 268: uart_dec_pot3=(map_dec_pot3+0x30);
+"268
+[e = _uart_dec_pot3 -> + -> _map_dec_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 269: uart_un_pot3=(map_un_pot3+0x30);
+"269
+[e = _uart_un_pot3 -> + -> _map_un_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 271: uart_cen_pot4=(map_cen_pot4+0x30);
+"271
+[e = _uart_cen_pot4 -> + -> _map_cen_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 272: uart_dec_pot4=(map_dec_pot4+0x30);
+"272
+[e = _uart_dec_pot4 -> + -> _map_dec_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 273: uart_un_pot4=(map_un_pot4+0x30);
+"273
+[e = _uart_un_pot4 -> + -> _map_un_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 274: return;
+"274
+[e $UE 174  ]
+[; ;main_hdt7.c: 275: }
+"275
+[e :UE 174 ]
 }

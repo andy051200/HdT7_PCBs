@@ -1,108 +1,15 @@
 
-# 1 "C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c"
+# 1 "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c"
+
+# 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\xc.h"
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
 
 
-# 15
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-# 13 "C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef __int24 int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 52
-typedef unsigned char uint8_t;
-
-# 58
-typedef unsigned int uint16_t;
-
-# 65
-typedef __uint24 uint24_t;
-
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+# 13 "C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
 
 # 52 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h"
 extern volatile unsigned char INDF __at(0x000);
@@ -2556,16 +2463,6 @@ extern volatile __bit nW __at(0x4A2);
 
 extern volatile __bit nWRITE __at(0x4A2);
 
-# 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\xc.h"
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-# 13 "C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\xc8debug.h"
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-
 
 # 30 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h"
 #pragma intrinsic(__nop)
@@ -2594,233 +2491,175 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 14 "C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/Osc_config.h"
-void osc_config(uint8_t freq);
-
-# 13 "C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/ADC_CONFIG.h"
-void ADC_config(void);
-
-# 17 "C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/UART_CONFIG.h"
-void uart_config(void);
-
-# 50 "C:/Users/Andy Bonilla/Documents/GitHub/PCBs/hdt7_pcbs/hdt7_pcbs.X/main_hdt7.c"
-unsigned char conversion1, conversion2, conversion3, conversion4;
-unsigned char cuenta_uart=0;
-unsigned char map_cen_pot1, map_dec_pot1, map_un_pot1;
-unsigned char map_cen_pot2, map_dec_pot2, map_un_pot2;
-unsigned char map_cen_pot3, map_dec_pot3, map_un_pot3;
-unsigned char map_cen_pot4, map_dec_pot4, map_un_pot4;
-unsigned char uart_cen_pot1,uart_dec_pot1, uart_un_pot1;
-unsigned char uart_cen_pot2,uart_dec_pot2, uart_un_pot2;
-unsigned char uart_cen_pot3,uart_dec_pot3, uart_un_pot3;
-unsigned char uart_cen_pot4,uart_dec_pot4, uart_un_pot4;
-
-# 63
-void setup(void);
-void toggle_adc(void);
-void mandar_datos(void);
-void mapeos(void);
-
-# 70
-void __interrupt() isr(void)
+# 5 "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c"
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
 {
-if (PIR1bits.TXIF)
+volatile unsigned char *cp = to;
+
+while (EECON1bits.WR) continue;
+EEADR = (unsigned char)from;
+while(size--) {
+while (EECON1bits.WR) continue;
+
+EECON1 &= 0x7F;
+
+EECON1bits.RD = 1;
+*cp++ = EEDATA;
+++EEADR;
+}
+
+# 36
+}
+
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
 {
-cuenta_uart++;
-mandar_datos();
-PIR1bits.TXIF=0;
+const unsigned char *ptr =from;
+
+while (EECON1bits.WR) continue;
+EEADR = (unsigned char)to - 1U;
+
+EECON1 &= 0x7F;
+
+while(size--) {
+while (EECON1bits.WR) {
+continue;
+}
+EEDATA = *ptr++;
+++EEADR;
+STATUSbits.CARRY = 0;
+if (INTCONbits.GIE) {
+STATUSbits.CARRY = 1;
+}
+INTCONbits.GIE = 0;
+EECON1bits.WREN = 1;
+EECON2 = 0x55;
+EECON2 = 0xAA;
+EECON1bits.WR = 1;
+EECON1bits.WREN = 0;
+if (STATUSbits.CARRY) {
+INTCONbits.GIE = 1;
 }
 }
 
-# 82
-void main(void)
-{
-setup();
-_delay((unsigned long)((1)*(4000000/4000.0)));
-ADCON0bits.GO=1;
-while(1)
-{
-
-toggle_adc();
-
-mapeos();
+# 101
 }
 
-}
-
-# 99
-void setup(void)
+unsigned char
+__eetoc(__eeprom void *addr)
 {
-
-ANSEL=0;
-ANSELH=0;
-ANSELbits.ANS0 = 1;
-ANSELbits.ANS1 = 1;
-ANSELbits.ANS2 = 1;
-ANSELbits.ANS3 = 1;
-
-TRISAbits.TRISA0=1;
-TRISAbits.TRISA1=1;
-TRISAbits.TRISA2=1;
-TRISAbits.TRISA3=1;
-TRISCbits.TRISC6=0;
-TRISCbits.TRISC7=1;
-
-PORTA=0;
-PORTC=0;
-
-osc_config(4);
-
-ADC_config();
-
-uart_config();
-
-INTCONbits.GIE=1;
-INTCONbits.PEIE=1;
-PIE1bits.TXIE=1;
-PIE1bits.RCIE=1;
-PIR1bits.TXIF=0;
-PIR1bits.RCIF=0;
+unsigned char data;
+__eecpymem((unsigned char *) &data,addr,1);
+return data;
 }
 
-# 136
-void toggle_adc()
+unsigned int
+__eetoi(__eeprom void *addr)
 {
-if(ADCON0bits.GO==0)
+unsigned int data;
+__eecpymem((unsigned char *) &data,addr,2);
+return data;
+}
+
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
 {
-switch(ADCON0bits.CHS)
+__uint24 data;
+__eecpymem((unsigned char *) &data,addr,3);
+return data;
+}
+#pragma warning pop
+
+unsigned long
+__eetol(__eeprom void *addr)
 {
-case(0):
-conversion1=ADRESH;
-_delay((unsigned long)((500)*(4000000/4000000.0)));
-ADCON0bits.CHS=1;
-break;
-
-case(1):
-conversion2=ADRESH;
-_delay((unsigned long)((500)*(4000000/4000000.0)));
-ADCON0bits.CHS=2;
-break;
-
-case(2):
-conversion3=ADRESH;
-_delay((unsigned long)((500)*(4000000/4000000.0)));
-ADCON0bits.CHS=3;
-break;
-case(3):
-conversion4=ADRESH;
-_delay((unsigned long)((500)*(4000000/4000000.0)));
-ADCON0bits.CHS=0;
-break;
-
-}
-_delay((unsigned long)((1)*(4000000/4000.0)));
-ADCON0bits.GO=1;
-}
-return;
+unsigned long data;
+__eecpymem((unsigned char *) &data,addr,4);
+return data;
 }
 
-void mandar_datos(void)
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
 {
-switch(cuenta_uart)
+unsigned long long data;
+__eecpymem((unsigned char *) &data,addr,8);
+return data;
+}
+#pragma warning pop
+
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
 {
-
-
-
-case(1):
-TXREG=uart_cen_pot1;
-break;
-case(2):
-TXREG=uart_dec_pot1;
-break;
-case(3):
-TXREG=uart_un_pot1;
-break;
-case(4):
-TXREG=0x2C;
-break;
-case(5):
-TXREG=uart_cen_pot2;
-break;
-case(6):
-TXREG=uart_dec_pot2;
-break;
-case(7):
-TXREG=uart_un_pot2;
-break;
-case(8):
-TXREG=0x2C;
-break;
-case(9):
-TXREG=uart_cen_pot3;
-break;
-case(10):
-TXREG=uart_dec_pot3;
-break;
-case(11):
-TXREG=uart_un_pot3;
-break;
-case(12):
-TXREG=0x2C;
-break;
-case(13):
-TXREG=uart_cen_pot4;
-break;
-case(14):
-TXREG=uart_dec_pot4;
-break;
-case(15):
-TXREG=uart_un_pot4;
-break;
-case(16):
-TXREG=10;
-break;
-case(17):
-TXREG=13;
-break;
-case(30):
-cuenta_uart=0;
-break;
-}
-return;
+__memcpyee(addr,(unsigned char *) &data,1);
+return data;
 }
 
-void mapeos(void)
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
 {
-
-
-map_cen_pot1=(((conversion1)/100)%10);
-map_dec_pot1=(((conversion1)/10)%10);
-map_un_pot1=((conversion1)%10);
-
-map_cen_pot2=(((conversion2)/100)%10);
-map_dec_pot2=(((conversion2)/10)%10);
-map_un_pot2=((conversion2)%10);
-
-map_cen_pot3=(((conversion3)/100)%10);
-map_dec_pot3=(((conversion3)/10)%10);
-map_un_pot3=((conversion3)%10);
-
-map_cen_pot4=(((conversion4)/100)%10);
-map_dec_pot4=(((conversion4)/10)%10);
-map_un_pot4=((conversion4)%10);
-
-
-
-uart_cen_pot1=(map_cen_pot1+0x30);
-uart_dec_pot1=(map_dec_pot1+0x30);
-uart_un_pot1=(map_un_pot1+0x30);
-
-uart_cen_pot2=(map_cen_pot2+0x30);
-uart_dec_pot2=(map_dec_pot2+0x30);
-uart_un_pot2=(map_un_pot2+0x30);
-
-uart_cen_pot3=(map_cen_pot3+0x30);
-uart_dec_pot3=(map_dec_pot3+0x30);
-uart_un_pot3=(map_un_pot3+0x30);
-
-uart_cen_pot4=(map_cen_pot4+0x30);
-uart_dec_pot4=(map_dec_pot4+0x30);
-uart_un_pot4=(map_un_pot4+0x30);
-return;
+__memcpyee(addr,(unsigned char *) &data,2);
+return data;
 }
+
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+__memcpyee(addr,(unsigned char *) &data,3);
+return data;
+}
+#pragma warning pop
+
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+__memcpyee(addr,(unsigned char *) &data,4);
+return data;
+}
+
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+__memcpyee(addr,(unsigned char *) &data,8);
+return data;
+}
+#pragma warning pop
+
+float
+__eetoft(__eeprom void *addr)
+{
+float data;
+__eecpymem((unsigned char *) &data,addr,3);
+return data;
+}
+
+double
+__eetofl(__eeprom void *addr)
+{
+double data;
+__eecpymem((unsigned char *) &data,addr,4);
+return data;
+}
+
+float
+__fttoee(__eeprom void *addr, float data)
+{
+__memcpyee(addr,(unsigned char *) &data,3);
+return data;
+}
+
+double
+__fltoee(__eeprom void *addr, double data)
+{
+__memcpyee(addr,(unsigned char *) &data,4);
+return data;
+}
+

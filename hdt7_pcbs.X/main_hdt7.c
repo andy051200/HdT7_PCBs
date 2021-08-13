@@ -47,77 +47,74 @@ Descripcion:
 //-------DIRECTIVAS DEL COMPILADOR
 #define _XTAL_FREQ 4000000
 //-------VARIABLES DE PROGRAMA
-unsigned char conversion1;
-unsigned char conversion2;
-unsigned char conversion3;
-unsigned char conversion4;
-unsigned char cen_pot1, dec_pot1, un_pot1;
-unsigned char cen_pot2, dec_pot2, un_pot2;
-unsigned char dec_pot3, un_pot3;
-unsigned char dec_pot4, un_pot4;
-unsigned char cuenta_uart;
+unsigned char conversion1, conversion2, conversion3, conversion4; //guardar adresh
+unsigned char cuenta_uart=0;                            //mandar datos uart
+unsigned char map_cen_pot1, map_dec_pot1, map_un_pot1;  //mapeo pot1
+unsigned char map_cen_pot2, map_dec_pot2, map_un_pot2;  //mapeo pot2
+unsigned char map_cen_pot3, map_dec_pot3, map_un_pot3;  //mapeo pot3
+unsigned char map_cen_pot4, map_dec_pot4, map_un_pot4;  //mapeo pot4
+unsigned char uart_cen_pot1,uart_dec_pot1, uart_un_pot1;    //ascii pot1
+unsigned char uart_cen_pot2,uart_dec_pot2, uart_un_pot2;    //ascii pot2
+unsigned char uart_cen_pot3,uart_dec_pot3, uart_un_pot3;    //ascii pot3
+unsigned char uart_cen_pot4,uart_dec_pot4, uart_un_pot4;    //ascii pot4
 /*-----------------------------------------------------------------------------
  ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
  -----------------------------------------------------------------------------*/
 void setup(void);
 void toggle_adc(void);
-unsigned char datos_ascii(uint8_t numero);
-uint8_t uart_ascii();
-void envio_uart(void);
+void mandar_datos(void);
 void mapeos(void);
 /*-----------------------------------------------------------------------------
  --------------------------- INTERRUPCIONES -----------------------------------
  -----------------------------------------------------------------------------*/
 void __interrupt() isr(void) //funcion de interrupciones
 {
-    if (TXIF)
+    if (PIR1bits.TXIF)
     {
-        cuenta_uart++;          //se suma a variable de control
-        envio_uart();           //se llama funcion para mandar los datos
-        PIR1bits.TXIF=0;                 //se apga bandera de interrupcion
-    }
-    
-    
+        cuenta_uart++;      //se suma variable guia
+        mandar_datos();     //invoco funcion para mandar uart
+        PIR1bits.TXIF=0;    //apago interrupcion
+    }   
 }
 /*-----------------------------------------------------------------------------
  ----------------------------- MAIN LOOP --------------------------------------
  -----------------------------------------------------------------------------*/
-void main(void) {
+void main(void)
+{
     setup();
     __delay_ms(1);
     ADCON0bits.GO=1;
     while(1)
     {
+        //-------CAMBIO DE CANALES EN ADC
         toggle_adc();
+        //-------MAPEO DE VALORES DE POTENCIOMETROS
         mapeos();
-        //TXREG=conversion1;
-        //PORTD=conversion1;
     }
-    return;
+   
 }
 /*-----------------------------------------------------------------------------
  ---------------------------------- SET UP -----------------------------------
  -----------------------------------------------------------------------------*/
-void setup(void){
+void setup(void)
+{
     //-------CONFIGURACION ENTRADAS ANALOGICAS
-    ANSELbits.ANS0 = 1;                         //AN0 para potenciometro 1
-    ANSELbits.ANS1 = 1;                         //AN0 para potenciometro 2
-    ANSELbits.ANS2 = 1;                         //AN0 para potenciometro 3
-    ANSELbits.ANS3 = 1;                         //AN0 para potenciometro 4
-    ANSELH = 0;
+    ANSEL=0;
+    ANSELH=0;
+    ANSELbits.ANS0 = 1;                 //AN0 para potenciometro 1
+    ANSELbits.ANS1 = 1;                 //AN1 para potenciometro 2
+    ANSELbits.ANS2 = 1;                 //AN2 para potenciometro 3
+    ANSELbits.ANS3 = 1;                 //AN3 para potenciometro 4
     //-------CONFIGURACION IN/OUT
-    TRISAbits.TRISA0 = 1;                       //entrada potenciometro 1
-    TRISAbits.TRISA1 = 1;                       //entrada potenciometro 2
-    TRISAbits.TRISA2 = 1;                       //entrada potenciometro 3
-    TRISAbits.TRISA3 = 1;                       //entrada potenciometro 4
-    TRISCbits.TRISC6=0;                         //salida TX uart
-    TRISCbits.TRISC7=1;                         //entrada RX uart
-    TRISD = 0;
+    TRISAbits.TRISA0=1;                 //entrada pot1
+    TRISAbits.TRISA1=1;                 //entrada pot2
+    TRISAbits.TRISA2=1;                 //entrada pot3
+    TRISAbits.TRISA3=1;                 //entrada pot4
+    TRISCbits.TRISC6=0;                 //salida TX uart
+    TRISCbits.TRISC7=1;                 //entrada RX uart
     //-------LIMPIEZA DE PUERTOS
-    PORTA = 0;
-    PORTC = 0;
-    PORTD = 0;
-    PORTE = 0;
+    PORTA=0;
+    PORTC=0;
     //-------CONFIGURACION DE RELOJ A 4MHz
     osc_config(4);
     //-------CONFIGURACION DE ADC
@@ -125,188 +122,154 @@ void setup(void){
     //-------CONFIGURACION DE COMUNICACION UART
     uart_config();
     //-------CONFIGURACION DE INTERRUPCIONES
-    INTCONbits.GIE=1;                   //se habilitan interrupciones globales
-    PIE1bits.ADIE = 0 ;                 //se prende interrupcion por ADC
-    PIR1bits.ADIF = 0;                  //se baja bandera de conversion
-    PIR1bits.ADIF = 0;                  //se baja bandera de conversion
-    PIE1bits.TXIE=1;                    //enable interrupcion de tx uart
-    PIR1bits.TXIF=0;                    //apago bandera interrupcion tx uart
-    
+    INTCONbits.GIE=1;           //se habilita interrupciones globales
+    INTCONbits.PEIE=1;          //interrupcion por perifericos
+    PIE1bits.TXIE=1;            //enable interrupcion de tx uart
+    PIE1bits.RCIE=1;            //enable interrupcion de rx uart
+    PIR1bits.TXIF=0;            //apago bandera interrupcion tx uart
+    PIR1bits.RCIF=0;            //apago bandera interrupcion rx uart
 }
 /*-----------------------------------------------------------------------------
  --------------------------------- FUNCIONES ----------------------------------
  -----------------------------------------------------------------------------*/
 //-------FUNCION PARA CAMBIO DE CANALES EN ADC
-void toggle_adc(void)
+void toggle_adc()
 {
-    if (ADCON0bits.GO==0)
+    if(ADCON0bits.GO==0)
     {
         switch(ADCON0bits.CHS)
         {
             case(0):
-                conversion1=ADRESH;         //potenciometro 1
-                __delay_us(500);            //delay para cargar capacitor          
-                ADCON0bits.CHS=1;           //switch de canal, cambio a 1
-                ADCON0bits.GO=1;            //se inicia otra conversion ADC
+                conversion1=ADRESH;
+                __delay_us(500);
+                ADCON0bits.CHS=1;
                 break;
-                    
+                
             case(1):
-                conversion2=ADRESH;         //potenciometro 2
-                __delay_us(500);            //delay para cargar capacitor
-                ADCON0bits.CHS=2;           //switch de canal, cambio a 2
-                ADCON0bits.GO=1;            //se inicia otra conversion ADC
+                conversion2=ADRESH;
+                __delay_us(500);
+                ADCON0bits.CHS=2;
                 break;
+                
             case(2):
-                conversion3=ADRESH;         //potenciometro 2
-                __delay_us(500);            //delay para cargar capacitor
-                ADCON0bits.CHS=3;           //switch de canal, cambio a 3
-                ADCON0bits.GO=1;            //se inicia otra conversion ADC
+                conversion3=ADRESH;
+                __delay_us(500);
+                ADCON0bits.CHS=3;
                 break;
             case(3):
-                conversion4=ADRESH;         //potenciometro 2
-                __delay_us(500);            //delay para cargar capacitor
-                ADCON0bits.CHS=0;           //switch de canal, cambio a 0
-                ADCON0bits.GO=1;            //se inicia otra conversion ADC
+                conversion4=ADRESH;
+                __delay_us(500);
+                ADCON0bits.CHS=0;
                 break;
-            
-            __delay_us(500);                //delay para carga de capacitor
-           
+                
         }
+        __delay_ms(1);
+        ADCON0bits.GO=1;
     }
+    return;
 }
-//-------FUNCION PARA CONVERSOR A ASCII
-unsigned char datos_ascii(uint16_t numero)    //funcion para convertir a valores ascii
-{
-    switch(numero)
-    {
-        default:
-            return 0x30;        //retorna 0 en ascii
-            break;
-        case(0):
-            return 0x30;        //retorna 0 en ascii
-            break;
-            
-        case(1):
-            return 0x31;        //retorna 1 en ascii
-            break;
-            
-        case(2):
-            return 0x32;        //retorna 2 en ascii
-            break;
-            
-        case(3):
-            return 0x33;        //retorna 3 en ascii
-            break;
-            
-        case(4):
-            return 0x34;        //retorna 4 en ascii
-            break;
-            
-        case(5):
-            return 0x35;        //retorna 5 en ascii
-            break;
-            
-        case(6):
-            return 0x36;        //retorna 6 en ascii
-            break;
-            
-        case(7):
-            return 0x37;        //retorna 7 en ascii
-            break;
-            
-        case(8):
-            return 0x38;        //retorna 8 en ascii
-            break;
-            
-        case(9):
-            return 0x39;        //retorna 9 en ascii
-            break;       
-    }   
-}
-
-//-------FUNCION PARA MANDAR DATOS EN UART
-void envio_uart(void)
+//-------FUNCION PARA MANDAR DATOS UART 
+void mandar_datos(void)
 {
     switch(cuenta_uart)
     {
-        case(1):            //GAUGE, DE 0 A 255, centenas
-            TXREG = datos_ascii(cen_pot1);
+        //default:
+          //  TXREG=32;               //mando espacio
+            //break;
+        case(1):
+            TXREG=uart_cen_pot1;    //mando centenas pot1
             break;
-            
-        case(2):            //GAUGE, DE 0 A 255, decenas
-            TXREG = datos_ascii(dec_pot1);
+        case(2):
+            TXREG=uart_dec_pot1;    //mando decenas pot1
             break;
-            
-        case(3):            //GAUGE, DE 0 A 255, unidades
-            TXREG = datos_ascii(un_pot1);
+        case(3):
+            TXREG=uart_un_pot1;     //mando unidades pot1
             break;
-            
-        case(4):            //ESPACIO EN BLANCO
-            TXREG =32;
+        case(4):
+            TXREG=0x2C;             //mando coma de separacion
             break;
-            
-        case(5):            //TANQUE, DE 0 A 100, centenas
-            TXREG = datos_ascii(cen_pot2);
+        case(5):
+            TXREG=uart_cen_pot2;    //mando centenas pot2
             break;
-            
-        case(6):            //TANQUE, DE 0 A 100, decenas
-            TXREG = datos_ascii(dec_pot2);
+        case(6):
+            TXREG=uart_dec_pot2;    //mando decenas pot2
             break;
-            
-        case(7):            //TANQUE, DE 0 A 100, unidades
-            TXREG =datos_ascii(un_pot2);
+        case(7):
+            TXREG=uart_un_pot2;     //mando unidades pot2
             break;
-                
-        case(8):            //ESPACIO EN BLANCO
-            TXREG =32;
+        case(8):
+            TXREG=0x2C;             //mando coma de separacion
             break;
-            
-        case(9):            //TERMOMETRO, DE 0 A 70, decenas
-            TXREG =datos_ascii(dec_pot3);
+        case(9):
+            TXREG=uart_cen_pot3;    //mando centenas pot3
             break;
-            
-        case(10):            //TERMOMETRO, DE 0 A 70, unidades
-            TXREG =datos_ascii(un_pot3);
+        case(10):
+            TXREG=uart_dec_pot3;    //mando decenas pot3
             break;
-            
-        case(11):            //ESPACIO EN BLANCO
-            TXREG =32;
+        case(11):
+            TXREG=uart_un_pot3;     //mando unidades pot3
             break;
-            
-        case(12):            //AGUJA, DE 0 A 12, DECENAS
-            TXREG =datos_ascii(dec_pot4);
+        case(12):
+            TXREG=0x2C;             //mando coma de separacion
             break;
-            
-        case(13):            //AGUJA, DE 0 A 12, UNIDADES
-            TXREG =datos_ascii(un_pot3);
+        case(13):
+            TXREG=uart_cen_pot4;    //mando centenas pot4
             break;
-            
-        case(14):            //ESPACIO EN BLANCO
-            TXREG =32;
+        case(14):
+            TXREG=uart_dec_pot4;    //mando decenas pot4
             break;
-            
-        case(15):            //ENTER DE LINEA
-            TXREG =13;
-            cuenta_uart=0;
+        case(15):
+            TXREG=uart_un_pot4;     //mando unidades pot4
             break;
-    } 
+        case(16):
+            TXREG=10;               //mando nueva linea
+            break;
+        case(17):
+            TXREG=13;               //mando retorno de carro
+            break;
+        case(30):
+            cuenta_uart=0;          //un tipo de delay para reiniciar cuenta
+            break;
+    }
     return;
 }
-//FUNCION PARA MAPEAR POTENCIOMETROS
+
 void mapeos(void)
 {
-    cen_pot1=(((conversion1/100))%10);
-    dec_pot1=(((conversion1/10))%10);
-    un_pot1=((conversion1)%10);
+    //-------MAPEO DE VALORES DE POTENCIOMETROS
+    //pot1
+    map_cen_pot1=(((conversion1)/100)%10);    //centenas de pot1
+    map_dec_pot1=(((conversion1)/10)%10);    //centenas de pot1
+    map_un_pot1=((conversion1)%10);    //centenas de pot1
+    //pot2
+    map_cen_pot2=(((conversion2)/100)%10);    //centenas de pot1
+    map_dec_pot2=(((conversion2)/10)%10);    //centenas de pot1
+    map_un_pot2=((conversion2)%10);    //centenas de pot1
+    //pot3
+    map_cen_pot3=(((conversion3)/100)%10);    //centenas de pot1
+    map_dec_pot3=(((conversion3)/10)%10);    //centenas de pot1
+    map_un_pot3=((conversion3)%10);    //centenas de pot1
+    //pot4
+    map_cen_pot4=(((conversion4)/100)%10);    //centenas de pot1
+    map_dec_pot4=(((conversion4)/10)%10);    //centenas de pot1
+    map_un_pot4=((conversion4)%10);    //centenas de pot1
     
-    cen_pot2=((((conversion2/2.55)/100)%10));
-    dec_pot2=(((conversion2/2.55)/10)%10);
-    un_pot2=((conversion2/2.55)%10);
-    
-    dec_pot3=(((conversion3/3.641)/10)%10);
-    un_pot3=((conversion3/3.641)%10);
-    
-    dec_pot3=(((conversion4/21.3)/10)%10);
-    un_pot3=((conversion4/21.3)%10);
+    //-------TRASLADO A ASCII
+    //pot1
+    uart_cen_pot1=(map_cen_pot1+0x30);
+    uart_dec_pot1=(map_dec_pot1+0x30);
+    uart_un_pot1=(map_un_pot1+0x30);
+    //pot2
+    uart_cen_pot2=(map_cen_pot2+0x30);
+    uart_dec_pot2=(map_dec_pot2+0x30);
+    uart_un_pot2=(map_un_pot2+0x30);
+    //pot3
+    uart_cen_pot3=(map_cen_pot3+0x30);
+    uart_dec_pot3=(map_dec_pot3+0x30);
+    uart_un_pot3=(map_un_pot3+0x30);
+    //pot4
+    uart_cen_pot4=(map_cen_pot4+0x30);
+    uart_dec_pot4=(map_dec_pot4+0x30);
+    uart_un_pot4=(map_un_pot4+0x30);
     return;
 }

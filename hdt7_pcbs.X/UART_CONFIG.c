@@ -21,18 +21,15 @@
 void uart_config(void)
 {
     //CONFIGURACION DE UART
-    //braudeaje
-    TXSTAbits.TX9 = 0; //TRANSMISION DE 8 BITS
-    TXSTAbits.SYNC = 0; //ASINCRONO
-    TXSTAbits.BRGH = 1; //HIGH SPEED
-    BAUDCTLbits.BRG16 = 0; //BAUD RATE DE 8 BITS
-    SPBRGH = 0;
-    SPBRG = 103;
-    PIE1bits.TXIE = 1;
-    TXSTAbits.TXEN = 1;
-    
-    //CONFIG RX
-    RCSTAbits.SPEN = 1;
-    RCSTAbits. RX9 = 0;
-    RCSTAbits.CREN = 1;
+    TXSTAbits.SYNC = 0;     //comunicacion asincrona
+	TXSTAbits.BRGH = 1;     //comunicacion de alta velocidad
+	TXSTAbits.TX9 = 0;      //comunicacion de 8bits
+	BAUDCTLbits.BRG16 = 0;  //
+	SPBRGH = 0;             //configuracion de braudeaje segun Freq osc
+	SPBRG = 25;
+	//SETUP RECIBIR
+	RCSTAbits.SPEN = 1;     //se habilita modulo
+	RCSTAbits.RX9 = 0;      //comunicacion de 8bits
+	RCSTAbits.CREN = 0;     //
+	TXSTAbits.TXEN = 1;     //
 }
