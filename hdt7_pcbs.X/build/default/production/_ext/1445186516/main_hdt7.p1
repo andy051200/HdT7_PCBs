@@ -1973,171 +1973,207 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main_hdt7.c: 175: {
 "175
 {
-[; ;main_hdt7.c: 179: case(1):
-"179
+[; ;main_hdt7.c: 176: case(1):
+"176
 [e :U 156 ]
-[; ;main_hdt7.c: 180: TXREG=uart_cen_pot1;
-"180
+[; ;main_hdt7.c: 177: TXREG=uart_cen_pot1;
+"177
 [e = _TXREG _uart_cen_pot1 ]
+[; ;main_hdt7.c: 178: break;
+"178
+[e $U 154  ]
+[; ;main_hdt7.c: 179: case(2):
+"179
+[e :U 157 ]
+[; ;main_hdt7.c: 180: TXREG=uart_dec_pot1;
+"180
+[e = _TXREG _uart_dec_pot1 ]
 [; ;main_hdt7.c: 181: break;
 "181
 [e $U 154  ]
-[; ;main_hdt7.c: 182: case(2):
+[; ;main_hdt7.c: 182: case(3):
 "182
-[e :U 157 ]
-[; ;main_hdt7.c: 183: TXREG=uart_dec_pot1;
+[e :U 158 ]
+[; ;main_hdt7.c: 183: TXREG=uart_un_pot1;
 "183
-[e = _TXREG _uart_dec_pot1 ]
+[e = _TXREG _uart_un_pot1 ]
 [; ;main_hdt7.c: 184: break;
 "184
 [e $U 154  ]
-[; ;main_hdt7.c: 185: case(3):
+[; ;main_hdt7.c: 185: case(4):
 "185
-[e :U 158 ]
-[; ;main_hdt7.c: 186: TXREG=uart_un_pot1;
+[e :U 159 ]
+[; ;main_hdt7.c: 186: TXREG=44;
 "186
-[e = _TXREG _uart_un_pot1 ]
+[e = _TXREG -> -> 44 `i `uc ]
 [; ;main_hdt7.c: 187: break;
 "187
 [e $U 154  ]
-[; ;main_hdt7.c: 188: case(4):
+[; ;main_hdt7.c: 188: case(5):
 "188
-[e :U 159 ]
-[; ;main_hdt7.c: 189: TXREG=0x2C;
+[e :U 160 ]
+[; ;main_hdt7.c: 189: TXREG=uart_cen_pot2;
 "189
-[e = _TXREG -> -> 44 `i `uc ]
+[e = _TXREG _uart_cen_pot2 ]
 [; ;main_hdt7.c: 190: break;
 "190
 [e $U 154  ]
-[; ;main_hdt7.c: 191: case(5):
+[; ;main_hdt7.c: 191: case(6):
 "191
-[e :U 160 ]
-[; ;main_hdt7.c: 192: TXREG=uart_cen_pot2;
+[e :U 161 ]
+[; ;main_hdt7.c: 192: TXREG=uart_dec_pot2;
 "192
-[e = _TXREG _uart_cen_pot2 ]
+[e = _TXREG _uart_dec_pot2 ]
 [; ;main_hdt7.c: 193: break;
 "193
 [e $U 154  ]
-[; ;main_hdt7.c: 194: case(6):
+[; ;main_hdt7.c: 194: case(7):
 "194
-[e :U 161 ]
-[; ;main_hdt7.c: 195: TXREG=uart_dec_pot2;
+[e :U 162 ]
+[; ;main_hdt7.c: 195: TXREG=uart_un_pot2;
 "195
-[e = _TXREG _uart_dec_pot2 ]
+[e = _TXREG _uart_un_pot2 ]
 [; ;main_hdt7.c: 196: break;
 "196
 [e $U 154  ]
-[; ;main_hdt7.c: 197: case(7):
+[; ;main_hdt7.c: 197: case(8):
 "197
-[e :U 162 ]
-[; ;main_hdt7.c: 198: TXREG=uart_un_pot2;
+[e :U 163 ]
+[; ;main_hdt7.c: 198: TXREG=44;
 "198
-[e = _TXREG _uart_un_pot2 ]
+[e = _TXREG -> -> 44 `i `uc ]
 [; ;main_hdt7.c: 199: break;
 "199
 [e $U 154  ]
-[; ;main_hdt7.c: 200: case(8):
+[; ;main_hdt7.c: 200: case(9):
 "200
-[e :U 163 ]
-[; ;main_hdt7.c: 201: TXREG=0x2C;
+[e :U 164 ]
+[; ;main_hdt7.c: 201: TXREG=uart_cen_pot3;
 "201
-[e = _TXREG -> -> 44 `i `uc ]
+[e = _TXREG _uart_cen_pot3 ]
 [; ;main_hdt7.c: 202: break;
 "202
 [e $U 154  ]
-[; ;main_hdt7.c: 203: case(9):
+[; ;main_hdt7.c: 203: case(10):
 "203
-[e :U 164 ]
-[; ;main_hdt7.c: 204: TXREG=uart_cen_pot3;
+[e :U 165 ]
+[; ;main_hdt7.c: 204: TXREG=uart_dec_pot3;
 "204
-[e = _TXREG _uart_cen_pot3 ]
+[e = _TXREG _uart_dec_pot3 ]
 [; ;main_hdt7.c: 205: break;
 "205
 [e $U 154  ]
-[; ;main_hdt7.c: 206: case(10):
+[; ;main_hdt7.c: 206: case(11):
 "206
-[e :U 165 ]
-[; ;main_hdt7.c: 207: TXREG=uart_dec_pot3;
+[e :U 166 ]
+[; ;main_hdt7.c: 207: TXREG=uart_un_pot3;
 "207
-[e = _TXREG _uart_dec_pot3 ]
+[e = _TXREG _uart_un_pot3 ]
 [; ;main_hdt7.c: 208: break;
 "208
 [e $U 154  ]
-[; ;main_hdt7.c: 209: case(11):
+[; ;main_hdt7.c: 209: case(12):
 "209
-[e :U 166 ]
-[; ;main_hdt7.c: 210: TXREG=uart_un_pot3;
+[e :U 167 ]
+[; ;main_hdt7.c: 210: TXREG=44;
 "210
-[e = _TXREG _uart_un_pot3 ]
+[e = _TXREG -> -> 44 `i `uc ]
 [; ;main_hdt7.c: 211: break;
 "211
 [e $U 154  ]
-[; ;main_hdt7.c: 212: case(12):
+[; ;main_hdt7.c: 212: case(13):
 "212
-[e :U 167 ]
-[; ;main_hdt7.c: 213: TXREG=0x2C;
+[e :U 168 ]
+[; ;main_hdt7.c: 213: TXREG=uart_cen_pot4;
 "213
-[e = _TXREG -> -> 44 `i `uc ]
+[e = _TXREG _uart_cen_pot4 ]
 [; ;main_hdt7.c: 214: break;
 "214
 [e $U 154  ]
-[; ;main_hdt7.c: 215: case(13):
+[; ;main_hdt7.c: 215: case(14):
 "215
-[e :U 168 ]
-[; ;main_hdt7.c: 216: TXREG=uart_cen_pot4;
+[e :U 169 ]
+[; ;main_hdt7.c: 216: TXREG=uart_dec_pot4;
 "216
-[e = _TXREG _uart_cen_pot4 ]
+[e = _TXREG _uart_dec_pot4 ]
 [; ;main_hdt7.c: 217: break;
 "217
 [e $U 154  ]
-[; ;main_hdt7.c: 218: case(14):
+[; ;main_hdt7.c: 218: case(15):
 "218
-[e :U 169 ]
-[; ;main_hdt7.c: 219: TXREG=uart_dec_pot4;
+[e :U 170 ]
+[; ;main_hdt7.c: 219: TXREG=uart_un_pot4;
 "219
-[e = _TXREG _uart_dec_pot4 ]
+[e = _TXREG _uart_un_pot4 ]
 [; ;main_hdt7.c: 220: break;
 "220
 [e $U 154  ]
-[; ;main_hdt7.c: 221: case(15):
+[; ;main_hdt7.c: 221: case(16):
 "221
-[e :U 170 ]
-[; ;main_hdt7.c: 222: TXREG=uart_un_pot4;
+[e :U 171 ]
+[; ;main_hdt7.c: 222: TXREG=44;
 "222
-[e = _TXREG _uart_un_pot4 ]
+[e = _TXREG -> -> 44 `i `uc ]
 [; ;main_hdt7.c: 223: break;
 "223
 [e $U 154  ]
-[; ;main_hdt7.c: 224: case(16):
+[; ;main_hdt7.c: 224: case(17):
 "224
-[e :U 171 ]
-[; ;main_hdt7.c: 225: TXREG=10;
+[e :U 172 ]
+[; ;main_hdt7.c: 225: TXREG=uart_cen_pot1;
 "225
-[e = _TXREG -> -> 10 `i `uc ]
+[e = _TXREG _uart_cen_pot1 ]
 [; ;main_hdt7.c: 226: break;
 "226
 [e $U 154  ]
-[; ;main_hdt7.c: 227: case(17):
+[; ;main_hdt7.c: 227: case(18):
 "227
-[e :U 172 ]
-[; ;main_hdt7.c: 228: TXREG=13;
+[e :U 173 ]
+[; ;main_hdt7.c: 228: TXREG=uart_dec_pot1;
 "228
-[e = _TXREG -> -> 13 `i `uc ]
+[e = _TXREG _uart_dec_pot1 ]
 [; ;main_hdt7.c: 229: break;
 "229
 [e $U 154  ]
-[; ;main_hdt7.c: 230: case(30):
+[; ;main_hdt7.c: 230: case(19):
 "230
-[e :U 173 ]
-[; ;main_hdt7.c: 231: cuenta_uart=0;
+[e :U 174 ]
+[; ;main_hdt7.c: 231: TXREG=uart_un_pot1;
 "231
-[e = _cuenta_uart -> -> 0 `i `uc ]
+[e = _TXREG _uart_un_pot1 ]
 [; ;main_hdt7.c: 232: break;
 "232
 [e $U 154  ]
-"233
+[; ;main_hdt7.c: 234: case(20):
+"234
+[e :U 175 ]
+[; ;main_hdt7.c: 235: TXREG=10;
+"235
+[e = _TXREG -> -> 10 `i `uc ]
+[; ;main_hdt7.c: 236: break;
+"236
+[e $U 154  ]
+[; ;main_hdt7.c: 237: case(21):
+"237
+[e :U 176 ]
+[; ;main_hdt7.c: 238: TXREG=13;
+"238
+[e = _TXREG -> -> 13 `i `uc ]
+[; ;main_hdt7.c: 239: break;
+"239
+[e $U 154  ]
+[; ;main_hdt7.c: 240: case(35):
+"240
+[e :U 177 ]
+[; ;main_hdt7.c: 241: cuenta_uart=0;
+"241
+[e = _cuenta_uart -> -> 0 `i `uc ]
+[; ;main_hdt7.c: 242: break;
+"242
+[e $U 154  ]
+"243
 }
-[; ;main_hdt7.c: 233: }
+[; ;main_hdt7.c: 243: }
 [e $U 154  ]
 "174
 [e :U 155 ]
@@ -2158,101 +2194,105 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 15 `i `uc 170
  , $ -> -> 16 `i `uc 171
  , $ -> -> 17 `i `uc 172
- , $ -> -> 30 `i `uc 173
+ , $ -> -> 18 `i `uc 173
+ , $ -> -> 19 `i `uc 174
+ , $ -> -> 20 `i `uc 175
+ , $ -> -> 21 `i `uc 176
+ , $ -> -> 35 `i `uc 177
  154 ]
-"233
+"243
 [e :U 154 ]
-[; ;main_hdt7.c: 234: return;
-"234
+[; ;main_hdt7.c: 244: return;
+"244
 [e $UE 153  ]
-[; ;main_hdt7.c: 235: }
-"235
+[; ;main_hdt7.c: 245: }
+"245
 [e :UE 153 ]
 }
-"237
+"247
 [v _mapeos `(v ~T0 @X0 1 ef ]
-"238
+"248
 {
-[; ;main_hdt7.c: 237: void mapeos(void)
-[; ;main_hdt7.c: 238: {
+[; ;main_hdt7.c: 247: void mapeos(void)
+[; ;main_hdt7.c: 248: {
 [e :U _mapeos ]
 [f ]
-[; ;main_hdt7.c: 241: map_cen_pot1=(((conversion1)/100)%10);
-"241
-[e = _map_cen_pot1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 242: map_dec_pot1=(((conversion1)/10)%10);
-"242
-[e = _map_dec_pot1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 243: map_un_pot1=((conversion1)%10);
-"243
-[e = _map_un_pot1 -> % -> _conversion1 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 245: map_cen_pot2=(((conversion2)/100)%10);
-"245
-[e = _map_cen_pot2 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 246: map_dec_pot2=(((conversion2)/10)%10);
-"246
-[e = _map_dec_pot2 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 247: map_un_pot2=((conversion2)%10);
-"247
-[e = _map_un_pot2 -> % -> _conversion2 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 249: map_cen_pot3=(((conversion3)/100)%10);
-"249
-[e = _map_cen_pot3 -> % / -> _conversion3 `i -> 100 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 250: map_dec_pot3=(((conversion3)/10)%10);
-"250
-[e = _map_dec_pot3 -> % / -> _conversion3 `i -> 10 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 251: map_un_pot3=((conversion3)%10);
+[; ;main_hdt7.c: 251: map_cen_pot1=(((conversion1)/100)%10);
 "251
-[e = _map_un_pot3 -> % -> _conversion3 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 253: map_cen_pot4=(((conversion4)/100)%10);
+[e = _map_cen_pot1 -> % / -> _conversion1 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 252: map_dec_pot1=(((conversion1)/10)%10);
+"252
+[e = _map_dec_pot1 -> % / -> _conversion1 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 253: map_un_pot1=((conversion1)%10);
 "253
-[e = _map_cen_pot4 -> % / -> _conversion4 `i -> 100 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 254: map_dec_pot4=(((conversion4)/10)%10);
-"254
-[e = _map_dec_pot4 -> % / -> _conversion4 `i -> 10 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 255: map_un_pot4=((conversion4)%10);
+[e = _map_un_pot1 -> % -> _conversion1 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 255: map_cen_pot2=(((conversion2)/100)%10);
 "255
-[e = _map_un_pot4 -> % -> _conversion4 `i -> 10 `i `uc ]
-[; ;main_hdt7.c: 259: uart_cen_pot1=(map_cen_pot1+0x30);
+[e = _map_cen_pot2 -> % / -> _conversion2 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 256: map_dec_pot2=(((conversion2)/10)%10);
+"256
+[e = _map_dec_pot2 -> % / -> _conversion2 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 257: map_un_pot2=((conversion2)%10);
+"257
+[e = _map_un_pot2 -> % -> _conversion2 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 259: map_cen_pot3=(((conversion3)/100)%10);
 "259
-[e = _uart_cen_pot1 -> + -> _map_cen_pot1 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 260: uart_dec_pot1=(map_dec_pot1+0x30);
+[e = _map_cen_pot3 -> % / -> _conversion3 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 260: map_dec_pot3=(((conversion3)/10)%10);
 "260
-[e = _uart_dec_pot1 -> + -> _map_dec_pot1 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 261: uart_un_pot1=(map_un_pot1+0x30);
+[e = _map_dec_pot3 -> % / -> _conversion3 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 261: map_un_pot3=((conversion3)%10);
 "261
-[e = _uart_un_pot1 -> + -> _map_un_pot1 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 263: uart_cen_pot2=(map_cen_pot2+0x30);
+[e = _map_un_pot3 -> % -> _conversion3 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 263: map_cen_pot4=(((conversion4)/100)%10);
 "263
-[e = _uart_cen_pot2 -> + -> _map_cen_pot2 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 264: uart_dec_pot2=(map_dec_pot2+0x30);
+[e = _map_cen_pot4 -> % / -> _conversion4 `i -> 100 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 264: map_dec_pot4=(((conversion4)/10)%10);
 "264
-[e = _uart_dec_pot2 -> + -> _map_dec_pot2 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 265: uart_un_pot2=(map_un_pot2+0x30);
+[e = _map_dec_pot4 -> % / -> _conversion4 `i -> 10 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 265: map_un_pot4=((conversion4)%10);
 "265
-[e = _uart_un_pot2 -> + -> _map_un_pot2 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 267: uart_cen_pot3=(map_cen_pot3+0x30);
-"267
-[e = _uart_cen_pot3 -> + -> _map_cen_pot3 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 268: uart_dec_pot3=(map_dec_pot3+0x30);
-"268
-[e = _uart_dec_pot3 -> + -> _map_dec_pot3 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 269: uart_un_pot3=(map_un_pot3+0x30);
+[e = _map_un_pot4 -> % -> _conversion4 `i -> 10 `i `uc ]
+[; ;main_hdt7.c: 269: uart_cen_pot1=(map_cen_pot1+0x30);
 "269
-[e = _uart_un_pot3 -> + -> _map_un_pot3 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 271: uart_cen_pot4=(map_cen_pot4+0x30);
+[e = _uart_cen_pot1 -> + -> _map_cen_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 270: uart_dec_pot1=(map_dec_pot1+0x30);
+"270
+[e = _uart_dec_pot1 -> + -> _map_dec_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 271: uart_un_pot1=(map_un_pot1+0x30);
 "271
-[e = _uart_cen_pot4 -> + -> _map_cen_pot4 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 272: uart_dec_pot4=(map_dec_pot4+0x30);
-"272
-[e = _uart_dec_pot4 -> + -> _map_dec_pot4 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 273: uart_un_pot4=(map_un_pot4+0x30);
+[e = _uart_un_pot1 -> + -> _map_un_pot1 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 273: uart_cen_pot2=(map_cen_pot2+0x30);
 "273
-[e = _uart_un_pot4 -> + -> _map_un_pot4 `i -> 48 `i `uc ]
-[; ;main_hdt7.c: 274: return;
+[e = _uart_cen_pot2 -> + -> _map_cen_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 274: uart_dec_pot2=(map_dec_pot2+0x30);
 "274
-[e $UE 174  ]
-[; ;main_hdt7.c: 275: }
+[e = _uart_dec_pot2 -> + -> _map_dec_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 275: uart_un_pot2=(map_un_pot2+0x30);
 "275
-[e :UE 174 ]
+[e = _uart_un_pot2 -> + -> _map_un_pot2 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 277: uart_cen_pot3=(map_cen_pot3+0x30);
+"277
+[e = _uart_cen_pot3 -> + -> _map_cen_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 278: uart_dec_pot3=(map_dec_pot3+0x30);
+"278
+[e = _uart_dec_pot3 -> + -> _map_dec_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 279: uart_un_pot3=(map_un_pot3+0x30);
+"279
+[e = _uart_un_pot3 -> + -> _map_un_pot3 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 281: uart_cen_pot4=(map_cen_pot4+0x30);
+"281
+[e = _uart_cen_pot4 -> + -> _map_cen_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 282: uart_dec_pot4=(map_dec_pot4+0x30);
+"282
+[e = _uart_dec_pot4 -> + -> _map_dec_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 283: uart_un_pot4=(map_un_pot4+0x30);
+"283
+[e = _uart_un_pot4 -> + -> _map_un_pot4 `i -> 48 `i `uc ]
+[; ;main_hdt7.c: 284: return;
+"284
+[e $UE 178  ]
+[; ;main_hdt7.c: 285: }
+"285
+[e :UE 178 ]
 }

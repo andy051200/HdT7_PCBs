@@ -173,9 +173,6 @@ void mandar_datos(void)
 {
     switch(cuenta_uart)
     {
-        //default:
-          //  TXREG=32;               //mando espacio
-            //break;
         case(1):
             TXREG=uart_cen_pot1;    //mando centenas pot1
             break;
@@ -186,7 +183,7 @@ void mandar_datos(void)
             TXREG=uart_un_pot1;     //mando unidades pot1
             break;
         case(4):
-            TXREG=0x2C;             //mando coma de separacion
+            TXREG=44;               //mando coma como separador
             break;
         case(5):
             TXREG=uart_cen_pot2;    //mando centenas pot2
@@ -198,7 +195,7 @@ void mandar_datos(void)
             TXREG=uart_un_pot2;     //mando unidades pot2
             break;
         case(8):
-            TXREG=0x2C;             //mando coma de separacion
+            TXREG=44;               //mando coma como separador
             break;
         case(9):
             TXREG=uart_cen_pot3;    //mando centenas pot3
@@ -210,7 +207,7 @@ void mandar_datos(void)
             TXREG=uart_un_pot3;     //mando unidades pot3
             break;
         case(12):
-            TXREG=0x2C;             //mando coma de separacion
+            TXREG=44;               //mando coma como separador
             break;
         case(13):
             TXREG=uart_cen_pot4;    //mando centenas pot4
@@ -222,12 +219,25 @@ void mandar_datos(void)
             TXREG=uart_un_pot4;     //mando unidades pot4
             break;
         case(16):
+            TXREG=44;               //mando coma como separador
+            break;   
+        case(17):
+            TXREG=uart_cen_pot1;    //mando centenas pot1
+            break;
+        case(18):
+            TXREG=uart_dec_pot1;    //mando decenas pot1
+            break;
+        case(19):
+            TXREG=uart_un_pot1;     //mando unidades pot1
+            break;
+        
+        case(20):
             TXREG=10;               //mando nueva linea
             break;
-        case(17):
+        case(21):
             TXREG=13;               //mando retorno de carro
             break;
-        case(30):
+        case(35):
             cuenta_uart=0;          //un tipo de delay para reiniciar cuenta
             break;
     }
